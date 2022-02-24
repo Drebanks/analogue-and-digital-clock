@@ -1,0 +1,245 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  /* display: flex; */
+  justify-content: space-between;
+  align-items: center;
+  font-size: 2rem;
+  background-color: #222;
+}
+
+.clock {
+  width: 30rem;
+  height: 30rem;
+  border-radius: 50%;
+  border: 20px solid red;
+  margin: 50px auto;
+  padding: 2rem;
+  position: relative;
+}
+/* .clock_face{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform: translateY(-3px)
+} */
+.outer-clock-face {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  overflow: hidden;
+  background: #282828;
+}
+.outer-clock-face::after {
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+.outer-clock-face::before,
+.outer-clock-face::after,
+.outer-clock-face .marking {
+  content: " ";
+  position: absolute;
+  width: 5px;
+  height: 100%;
+  background: #1df52f;
+  z-index: 0;
+  left: 49%;
+}
+
+.outer-clock-face .marking {
+  background: #bdbdcb;
+  width: 3px;
+}
+.outer-clock-face .marking.marking-one {
+  transform: rotate(30deg);
+}
+.outer-clock-face .marking.marking-two {
+  transform: rotate(60deg);
+}
+.outer-clock-face .marking.marking-three {
+  transform: rotate(120deg);
+}
+.outer-clock-face .marking.marking-four {
+  transform: rotate(150deg);
+}
+.inner-clock-face {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  width: 80%;
+  height: 80%;
+  background: #282828;
+  border-radius: 100%;
+  z-index: 1;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+}
+
+.inner-clock-face::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  border-radius: 18px;
+  margin-left: -9px;
+  margin-top: -6px;
+  left: 50%;
+  width: 16px;
+  height: 16px;
+  background: #4d4b63;
+  z-index: 11;
+}
+
+.hand {
+  width: 50%;
+  height: 6px;
+  right: 50%;
+  background: #61afff;
+  position: absolute;
+  top: 50%;
+  border-radius: 6px;
+  transform-origin: 100%;
+  transform: rotate(90deg);
+  transition: all 0.05s;
+  transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+}
+.hand.hour-hand {
+  width: 25%;
+  z-index: 3;
+}
+.hand.minutes-hand {
+  width: 35%;
+  height: 3px;
+  z-index: 10%;
+  /* background: grey; */
+}
+.hand.second-hand {
+  width: 40%;
+  height: 2px;
+  background: #fff;
+}
+section {
+  background: rgb(255, 0, 191);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* margin: auto; */
+  /* width:50%; */
+  padding:30px;
+
+}
+h1{
+    text-align: center;
+    /* margin-bottom:20px; */
+}
+section.dark {
+  background: #fff;
+}
+section.dark .container {
+  background: #323840;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 220px;
+  width: 100%;
+  max-width: 560px;
+  background-color: #fff;
+  position: relative;
+  border-radius: 12px;
+}
+section.dark .container .icons i {
+  background: #fff;
+  color: #323840;
+}
+section.dark .container .icons i.fa-sun {
+  opacity: 1;
+  pointer-events: auto;
+  font-size: 16px;
+}
+.container .icons i {
+  position: absolute;
+  right: 17px;
+  top: 17px;
+  height: 30px;
+  width: 30px;
+  text-align: center;
+  line-height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 14px;
+  background: #222222;
+  color: #fff;
+}
+.icons i.fa-sun {
+  opacity: 0;
+  pointer-events: none;
+}
+.container .icons i.fa-sun {
+  opacity: 1;
+  pointer-events: none;
+  font-size: 16px;
+}
+.time {
+    display: flex;
+    align-items: center;
+}
+.time-colon .am_pm {
+    position: absolute;
+    top: 0;
+    right: -50px;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #fff;
+}
+
+.time-text {
+    height: 100px;
+    width: 100px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    background-color: white;
+    border-radius: 6px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+section.dark .time .time-colon .am_pm {
+  color: #fff;
+}
+section.dark .time .time-text .num,
+section.dark .time .colon {
+  color: #fff;
+}
+section.dark .time .time-colon .time-text {
+  background: #24292d;
+}
+
+section.dark .time .time-colon .text {
+  color: #fff;
+}
+.time .time-colon .time-text {
+  background: #24292d;
+}
+.colon {
+  font-size: 40px;
+  margin: 0 10px;
+}
+.time-colon .time-text .text {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.time-colon{
+    display: flex;
+    justify-content: space-between;
+}
